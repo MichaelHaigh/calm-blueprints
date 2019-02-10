@@ -4,7 +4,7 @@ This Calm blueprints deploys a fully functional [Oscar E-Commerce](http://oscarc
 * Nutanix Era - Calm makes REST API calls into Nutanix Era to provision a production grade PostgreSQL Database
 * Nutanix Buckets - Calm utilizes an existing object storage Bucket to store static website content
 
-To use this blueprint, import into a Prism Central running >= Calm 2.4.0, and fill in the Credentials and Variables mentioned below.  Once the Calm Application is running, access the Oscar Application by combining a kubernetes node IP and the port exposed by the oscar-django-service Kubernetes Service.
+To use this blueprint, import into a Prism Central running >= Calm 2.5.0.1, and fill in the Credentials and Variables mentioned below.  Once the Calm Application is running, access the Oscar Application by combining a kubernetes node IP and the port exposed by the oscar-django-service Kubernetes Service.
 
 ##### Credentials
 * era_creds: the admin account credentials for your Era Server
@@ -13,7 +13,7 @@ To use this blueprint, import into a Prism Central running >= Calm 2.4.0, and fi
 * kube_creds: your Karbon Kubernetes admin account and password (needed to create a Job which seeds application data, as Calm Kubernetes support is Tech Preview and a Job is not natively supported)
 
 ##### Variables
-* era_ip: The IP address of your Era Server
+* era_ip: The IP address of your Era Server (minimum version of 1.0.1)
 * software_profile: The desired Software Profile of your Postgres DB Server
 * compute_profile: The desired Compute Profile of your Postgres DB Server
 * network_profile: The desired Network Profile of your Postgres DB Server
