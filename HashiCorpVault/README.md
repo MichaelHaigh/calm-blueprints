@@ -8,4 +8,7 @@ To use this blueprint, import into a Prism Central running >= Calm 2.6.0, and fi
 
 ##### Variables
 * INSTANCE_PUBLIC_KEY: The matching SSH Public key, which in conjunction allow Calm to SSH to the VMs
+* ui: If set to 'true', the Vault user interface will be installed.  If the UI is not desired, set to 'false'.
+* secret_shares: Specifies the number of shares to split the master key into.
+* secret_threshold: Specifies the number of shares required to reconstruct the master key. This must be less than or equal to 'secret_shares'.
 
