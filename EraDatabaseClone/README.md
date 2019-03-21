@@ -1,5 +1,5 @@
 ## Era Database Clone
-This Calm blueprint allows for the creation and lifecycle management of Era Database Clones.  It is aimed at developers who need to clone production databases for development, troubleshooting, and testing.
+This Calm blueprint allows for the creation and lifecycle management of Era Database Clones.  It is aimed at developers who need to clone production databases for development, troubleshooting, and testing.  Currently, only PostgreSQL and MariaDB are supported.  Oracle and MSSQL will be coming soon.
 
 To use this blueprint, import into a Prism Central running >= Calm 2.6.0, and fill in the Credentials and Variables mentioned below.
 
