@@ -16,4 +16,4 @@ To use this blueprint, import into a Prism Central running >= Calm 2.6.0, and fi
 
 ##### Custom Actions Available
 * Get Parent Snapshot List: When this action is run, a list of Snapshot times and UUIDs of the clone's parent will be provided.  This is useful when running the **Refresh Clone** action.
-* Refresh Clone: When this action is run, the cloned database will be refreshed to a newer snapshot.  Optionally provide a snapshot UUID (which can be gathered from the **Get Parent Snapshot List** action), if left blank, the clone will be refreshed to the most recent snapshot.
+* Refresh Clone: When this action is run, the cloned database will be refreshed to a different snapshot.  Optionally provide a snapshot UUID (which can be gathered from the **Get Parent Snapshot List** action), if left blank, the clone will be refreshed to the most recent snapshot.
