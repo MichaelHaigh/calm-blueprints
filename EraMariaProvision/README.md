@@ -1,7 +1,7 @@
 ## Era MariaDB Database Provisioning
-This Calm blueprint deploys a production grade MariaDB database by calling Nutanix Era APIs. A minimum of Era Version 1.0.1 is required.
+This Calm blueprint deploys a production grade MariaDB database by calling Nutanix Era APIs. A minimum of Era Version 1.1.1 is required.
 
-To use this blueprint, import into a Prism Central running >= Calm 2.5.0.1, and fill in the Credentials and Variables mentioned below.
+To use this blueprint, import into a Prism Central running >= Calm 2.7.1.2, and fill in the Credentials and Variables mentioned below.
 
 ##### Credentials
 * era_creds: the admin account credentials for your Era Server
@@ -16,4 +16,7 @@ To use this blueprint, import into a Prism Central running >= Calm 2.5.0.1, and 
 * sla_name: The desired Time Machine SLA of your MariaDB
 * db_name: The name of database (be sure to keep this value unique within Era)
 * db_password: The password for the "root" user of the database
-* db_public_key: In conjunction with the "db_server_creds", this allows SSH access to the MariaDB Server
+
+##### Custom Actions
+* GetSnapshotList: Running this action will provide a list of all snapshots of the database
+* TakeSnapshot: Running this action will snapshot the database

@@ -1,7 +1,7 @@
 ## Era Database Clone
-This Calm blueprint allows for the creation and lifecycle management of Era Database Clones.  It is aimed at developers who need to clone production databases for development, troubleshooting, and testing.  Currently, only PostgreSQL and MariaDB are supported.  Oracle and MSSQL will be coming soon.
+This Calm blueprint allows for the creation and lifecycle management of Era Database Clones.  It is aimed at developers who need to clone production databases for development, troubleshooting, and testing.  Currently, only PostgreSQL and MariaDB are supported.  Era must be >= 1.1.1.
 
-To use this blueprint, import into a Prism Central running >= Calm 2.6.0, and fill in the Credentials and Variables mentioned below.
+To use this blueprint, import into a Prism Central running >= Calm 2.7.1.2, and fill in the Credentials and Variables mentioned below.
 
 ##### Credentials
 * era_creds: The admin account credentials for your Era Server.  The DBA should provide these credentials at time of blueprint import, which will be encrypted and securely stored, and will not be available for developers.
@@ -11,7 +11,7 @@ To use this blueprint, import into a Prism Central running >= Calm 2.6.0, and fi
 * source_db_name: This should be left blank, but left as runtime, so a developer can specify the name of the source database at application launch.  If left blank, or an incorrect name is given, the application will intentionally fail early, and provide a list of valid database names for the developer.
 * source_snapshot_id: This should be left blank, but left as runtime, so a developer can specify the UUID of the snapshot they wish to use for the database clone.  If left blank, the most recent snapshot will be automatically chosen.  If an incorrect UUID is provided, the application will intentionally fail early, and provide a list of valid snapshot UUIDs for the developer.
 * cloned_db_name: This should be left blank, but left as runtime, so a developer can name the database clone.  If left blank, the cloned database will default to \<source-db-name>\_Clone\_\<YYMMDDHHMM>.
-* cloned_db_public_key: In conjunction with the "db_server_creds", this allows SSH access to the Cloned DB Server.  It is recommended to add a default matching public key, but leave the field as runtime, so a developer can specify their own key if desired.
+* cloned_db_password: A default should be provided, but left as runtime, so a developer can supply their own password.
 * era_ip: The IP address of your Era Server.  This should be configured at the time of blueprint import, and then left alone.
 
 ##### Custom Actions Available
