@@ -68,11 +68,11 @@ _Calm Service Actions_
 
 
 
-1. **Service Actions** are a set of operations to be run on an individual service.  At the time of this blog’s publishing, they can not be invoked directly by the app’s end user, however they’re invoked indirectly via either profile actions or package (un)install (10) operations.  As mentioned in point number 2, services span application profiles, so their actions (and the underlying operations under those actions) do as well.  If you create a service action in the “AHV” profile, the same service action will be available in the “AWS” profile.  There are two different types of service actions, as follows.
-2. **System Defined Service Actions** are automatically created by Calm in every blueprint and underlying application.  While these actions cannot be individually invoked, they are called when the corresponding profile action is run.  For instance, any operations placed under the “Stop” service action when be run when an end user invokes the “Stop” profile action.
-3. **Custom Service Actions** are created by the blueprint developer, and should be added for any repeatable operations within the blueprint, like a “function” definition in a programming language.  For instance, say during both the “Create” and “Upgrade” profile actions, the “App” service should pull new code from git.  Rather than maintaining two separate tasks that perform the same set of operations, you could create a single custom service action which is then referenced in both the “Create” and “Upgrade” actions.
-4. **Package Install / Uninstall** are operations which are run during the “Create” or “Delete” profile actions.  In other words, they’re operations run when a user first launches a blueprint, or finally deletes the entire application.  More on the logic behind this in the next section, **Actions and Tasks Best Practices**.  Package Install and Uninstall are unique to each application profile, which means your tasks or the task contents can vary depending upon the underlying cloud or the app’s “t-shirt” size.
-5. **VM Pre-create / Post-delete** are operations which are run _before_ the substrate is created, or _after_ it is deleted.  A common use case for this is to make an API call into an IP Address Management (IPAM) system to get an IP for a to-be-created VM.  Since other operations described so far are run after the substrate has already been created, VM pre-create is necessary if a property of your substrate relies on a 3rd party system.
+7. **Service Actions** are a set of operations to be run on an individual service.  At the time of this blog’s publishing, they can not be invoked directly by the app’s end user, however they’re invoked indirectly via either profile actions or package (un)install (10) operations.  As mentioned in point number 2, services span application profiles, so their actions (and the underlying operations under those actions) do as well.  If you create a service action in the “AHV” profile, the same service action will be available in the “AWS” profile.  There are two different types of service actions, as follows.
+8. **System Defined Service Actions** are automatically created by Calm in every blueprint and underlying application.  While these actions cannot be individually invoked, they are called when the corresponding profile action is run.  For instance, any operations placed under the “Stop” service action when be run when an end user invokes the “Stop” profile action.
+9. **Custom Service Actions** are created by the blueprint developer, and should be added for any repeatable operations within the blueprint, like a “function” definition in a programming language.  For instance, say during both the “Create” and “Upgrade” profile actions, the “App” service should pull new code from git.  Rather than maintaining two separate tasks that perform the same set of operations, you could create a single custom service action which is then referenced in both the “Create” and “Upgrade” actions.
+10. **Package Install / Uninstall** are operations which are run during the “Create” or “Delete” profile actions.  In other words, they’re operations run when a user first launches a blueprint, or finally deletes the entire application.  More on the logic behind this in the next section, **Actions and Tasks Best Practices**.  Package Install and Uninstall are unique to each application profile, which means your tasks or the task contents can vary depending upon the underlying cloud or the app’s “t-shirt” size.
+11. **VM Pre-create / Post-delete** are operations which are run _before_ the substrate is created, or _after_ it is deleted.  A common use case for this is to make an API call into an IP Address Management (IPAM) system to get an IP for a to-be-created VM.  Since other operations described so far are run after the substrate has already been created, VM pre-create is necessary if a property of your substrate relies on a 3rd party system.
 
 
 ## Actions and Tasks Best Practices 
@@ -122,15 +122,15 @@ Compare this to service actions, which span application profiles.  In our exampl
 
 
 ```
-    #!/bin/bash
-    set -ex
+#!/bin/bash
+set -ex
 
-    cat << EOF > configure_db
-     "Created in AHV app profile,
-      since service actions span
-      app profiles, this will also
-      appear in AWS app profile."
-    EOF
+cat << EOF > configure_db
+ "Created in AHV app profile,
+  since service actions span
+  app profiles, this will also
+  appear in AWS app profile."
+EOF
 ```
 
 
@@ -143,7 +143,7 @@ If you’re following along, your Calm blueprint should now look like this:
 
 _AHV App Profile - DB Create Task_
 
-Once you create the above task, switch over to the **AWS** profile, expand the **DB** service, select the **Create** service action, and click the Configure_DB task:
+Once you create the above task, switch over to the **AWS** profile, expand the **DB** service, select the **Create** service action, and click the **Configure_DB** task:
 
 
 ![alt_text](images/Calm-Terminology8.png "image_tooltip")
@@ -192,8 +192,8 @@ In the left configuration pane, select the **AHV** app profile, expand the **App
 
 
 ```
-    echo "DB_IP=@@{DB.address}@@" \
-      > db_config
+echo "DB_IP=@@{DB.address}@@" \
+  > db_config
 ```
 
 
@@ -208,8 +208,8 @@ The **@@{DB.address}@@** macro will be patched with the actual DB’s IP address
 
 
 ```
-    echo "APP_IP=@@{App.address}@@" \
-      > app_config
+echo "APP_IP=@@{App.address}@@" \
+  > app_config
 ```
 
 
