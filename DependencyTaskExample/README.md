@@ -2,7 +2,7 @@
 
 Nutanix Calm is a multi-cloud application lifecycle manager, which means it allows you to model your applications in easy-to-consume blueprints, deploy those apps across a variety of on-prem and public clouds, and manage them throughout their entire lifecycle.  Combine this functionality with a self service focused Marketplace, robust policy and governance, and showback, and Calm enables IT and Developers to quickly turn complex operations into a simple, one-click request.
 
-While in-depth knowledge of application blueprints is not required for the majority of Calm users, it is necessary for IT Operators and Developers who are looking to build custom blueprints from the ground up.  This blog is aimed that those users who are looking to learn more about the objects within a Calm blueprint, and how they interact with one another.
+While in-depth knowledge of application blueprints is not required for the majority of Calm users, it is necessary for IT Operators and Developers who are looking to build custom blueprints from the ground up.  This blog is aimed at those users who are looking to learn more about the objects within a Calm blueprint, and how they interact with one another.
 
 We’ll first walk through importing an example blueprint into your own Calm environment, which is an optional step.  Next, we’ll cover some basic Calm terminology, followed by best practices on choosing where to add Calm operations into the various blueprint actions.  Finally, we’ll wrap things up by showing the various strategies for introducing dependencies between services.
 
